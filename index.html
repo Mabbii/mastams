@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetroTech Solutions | Gas Station Inventory & ATG Modules</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ffd700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ffd700;
+            color: #333;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Features Section */
+        .features {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #1e3c72;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: #1e3c72;
+        }
+
+        /* Products Section */
+        .products {
+            background: #f0f4f8;
+            padding: 4rem 2rem;
+        }
+
+        .products h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #1e3c72;
+        }
+
+        .product-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-body {
+            padding: 2rem;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-features li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .product-features li:before {
+            content: "✓";
+            color: #4CAF50;
+            position: absolute;
+            left: 0;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1e3c72;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .product-price small {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .product-btn {
+            display: block;
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .product-btn:hover {
+            background: #2a5298;
+        }
+
+        /* ATG Modules Section */
+        .atg-modules {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .atg-modules h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #1e3c72;
+        }
+
+        .module-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .module-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            border-color: #1e3c72;
+        }
+
+        .module-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .module-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .module-desc {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .module-specs {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .about h2 {
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .contact h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #1e3c72;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #1e3c72;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #2a5298;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .feature-grid,
+            .product-grid,
+            .module-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">PetroTech<span>Solutions</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#atg-modules">ATG Modules</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Advanced Gas Station Inventory Solutions</h1>
+        <p>Powered by Oracle Technology | Precision ATG Modules for Tank Management</p>
+        <a href="#contact" class="cta-button">Get Started Today</a>
+    </section>
+
+    <section id="features" class="features">
+        <h2>Why Choose PetroTech Solutions?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔧</div>
+                <h3>Oracle-Powered</h3>
+                <p>Enterprise-grade inventory management built on Oracle's robust database technology</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Real-time Monitoring</h3>
+                <p>Live inventory tracking and automated reordering systems</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure & Reliable</h3>
+                <p>Bank-level security with 99.9% uptime guarantee</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <h2>Inventory Management Solutions</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-header">
+                    <h3>Oracle Inventory Pro</h3>
+                    <p>Complete Station Management</p>
+                </div>
+                <div class="product-body">
+                    <ul class="product-features">
+                        <li>Real-time inventory tracking</li>
+                        <li>Automated reorder alerts</li>
+                        <li>Multi-station management</li>
+                        <li>Oracle database integration</li>
+                        <li>Advanced reporting & analytics</li>
+                    </ul>
+                    <div class="product-price">
+                        $2,499 <small>one-time</small>
+                    </div>
+                    <a href="#contact" class="product-btn">Request Demo</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-header">
+                    <h3>Enterprise Fuel Manager</h3>
+                    <p>For Large Operations</p>
+                </div>
+                <div class="product-body">
+                    <ul class="product-features">
+                        <li>All Pro features included</li>
+                        <li>Unlimited stations</li>
+                        <li>Advanced security features</li>
+                        <li>Custom reporting suite</li>
+                        <li>24/7 priority support</li>
+                    </ul>
+                    <div class="product-price">
+                        $4,999 <small>one-time</small>
+                    </div>
+                    <a href="#contact" class="product-btn">Request Demo</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-header">
+                    <h3>Cloud Inventory Suite</h3>
+                    <p>SaaS Solution</p>
+                </div>
+                <div class="product-body">
+                    <ul class="product-features">
+                        <li>Cloud-based management</li>
+                        <li>Mobile accessibility</li>
+                        <li>Automatic updates</li>
+                        <li>Scalable architecture</li>
+                        <li>Monthly subscription</li>
+                    </ul>
+                    <div class="product-price">
+                        $299 <small>/month</small>
+                    </div>
+                    <a href="#contact" class="product-btn">Start Free Trial</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="atg-modules" class="atg-modules">
+        <h2>ATG Modules for Tank Management</h2>
+        <div class="module-grid">
+            <div class="module-card">
+                <div class="module-icon">📡</div>
+                <h3>Level Monitoring ATG</h3>
+                <p class="module-desc">Precise fuel level monitoring with 0.1mm accuracy</p>
+                <p class="module-specs">Compatible with all major tank types • Real-time alerts</p>
+            </div>
+            <div class="module-card">
+                <div class="module-icon">🔍</div>
+                <h3>Leak Detection Module</h3>
+                <p class="module-desc">Early warning system for tank integrity issues</p>
+                <p class="module-specs">Continuous monitoring • Instant notifications • Compliance reporting</p>
+            </div>
+            <div class="module-card">
+                <div class="module-icon">🌡️</div>
+                <h3>Temperature Compensation</h3>
+                <p class="module-desc">Accurate volume calculations with temperature correction</p>
+                <p class="module-specs">API standards compliant • Automatic adjustments</p>
+            </div>
+            <div class="module-card">
+                <div class="module-icon">📱</div>
+                <h3>Remote Monitoring ATG</h3>
+                <p class="module-desc">Access tank data from anywhere via mobile app</p>
+                <p class="module-specs">iOS & Android apps • Push notifications • Cloud backup</p>
+            </div>
+            <div class="module-card">
+                <div class="module-icon">⚡</div>
+                <h3>Multi-Product ATG</h3>
+                <p class="module-desc">Simultaneous monitoring of up to 8 different products</p>
+                <p class="module-specs">Perfect for multi-fuel stations • Product segregation</p>
+            </div>
+            <div class="module-card">
+                <div class="module-icon">📊</div>
+                <h3>ATG Analytics Pro</h3>
+                <p class="module-desc">Advanced data analysis and forecasting tools</p>
+                <p class="module-specs">Trend analysis • Predictive maintenance • Custom reports</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About PetroTech Solutions</h2>
+        <div class="about-content">
+            <p>With over 15 years of experience in the fuel retail industry, PetroTech Solutions has been at the forefront of gas station inventory management technology. Our Oracle-based solutions power thousands of stations across North America, Europe, and Asia.</p>
+            <p>We specialize in developing robust inventory solutions and ATG modules that help gas station owners maximize efficiency, reduce losses, and ensure compliance with environmental regulations.</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2,500+</div>
+                    <div class="stat-label">Stations Served</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="interest">I'm interested in</label>
+                    <select id="interest" name="interest">
+                        <option value="inventory">Inventory Management</option>
+                        <option value="atg">ATG Modules</option>
+                        <option value="both">Both Solutions</option>
+                        <option value="consulting">Consulting Services</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 PetroTech Solutions. All rights reserved. | Oracle Partner Network Member</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">📞 1-800-PETROTECH | ✉️ info@petrotechsolutions.com</p>
+    </footer>
+</body>
+</html>
