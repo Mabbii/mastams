@@ -2,8 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MASTAMS | Gas Station Inventory & ATG Modules</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>MASTAMS FUEL | Futuristic Gas Station Inventory & ATG Intelligence</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,641 +17,697 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            background-color: #050b1a;
+            color: #eef5ff;
+            line-height: 1.5;
+            overflow-x: hidden;
         }
 
-        /* Header & Navigation */
+        /* futuristic glassmorphism + glow effects */
+        .glass {
+            background: rgba(15, 25, 45, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 28px;
+        }
+
+        /* custom scroll */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0f1f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0ff;
+            border-radius: 10px;
+        }
+
+        /* header neon */
         header {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(5, 11, 26, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+            transition: all 0.3s;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 1rem 2rem;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, #0ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
         }
-
         .logo span {
-            color: #ffd700;
+            color: #0ff;
+            text-shadow: 0 0 8px cyan;
         }
 
         .nav-links {
             display: flex;
+            gap: 2rem;
             list-style: none;
         }
-
-        .nav-links li {
-            margin-left: 2rem;
-        }
-
         .nav-links a {
-            color: white;
+            color: #ccf4ff;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: 0.2s;
+            font-size: 0.95rem;
         }
-
         .nav-links a:hover {
-            color: #ffd700;
+            color: #0ff;
+            text-shadow: 0 0 5px cyan;
         }
 
-        /* Hero Section */
+        /* hero with dual column: text + svg illustration */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-            padding: 8rem 2rem 4rem;
-            margin-top: 60px;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #ffd700;
-            color: #333;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        /* Features Section */
-        .features {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .features h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
-            color: #1e3c72;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h3 {
-            margin-bottom: 1rem;
-            color: #1e3c72;
-        }
-
-        /* Products Section */
-        .products {
-            background: #f0f4f8;
-            padding: 4rem 2rem;
-        }
-
-        .products h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
-            color: #1e3c72;
-        }
-
-        .product-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-header {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .product-header h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-body {
-            padding: 2rem;
-        }
-
-        .product-features {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        .product-features li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
             position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0;
+            overflow: hidden;
+            background: radial-gradient(circle at 20% 30%, #0a1a3a, #01050f);
+            padding: 6rem 2rem 4rem;
         }
-
-        .product-features li:before {
-            content: "✓";
-            color: #4CAF50;
+        .parallax-bg {
             position: absolute;
+            top: 0;
             left: 0;
+            width: 100%;
+            height: 120%;
+            /*background: url('https://res.cloudinary.com/dxf1gijtg/image/upload/v1774345903/vEuY4_vthvsm.jpg') center/cover no-repeat;*/
+            filter: brightness(0.25) contrast(1.2);
+            transform: translateY(-10%);
+            will-change: transform;
+            z-index: 0;
         }
-
-        .product-price {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #1e3c72;
-            text-align: center;
-            margin: 1rem 0;
-        }
-
-        .product-price small {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .product-btn {
-            display: block;
-            background: #1e3c72;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .product-btn:hover {
-            background: #2a5298;
-        }
-
-        /* ATG Modules Section */
-        .atg-modules {
-            padding: 4rem 2rem;
-            background: white;
-        }
-
-        .atg-modules h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
-            color: #1e3c72;
-        }
-
-        .module-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
             gap: 2rem;
         }
-
-        .module-card {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s;
-            border: 2px solid transparent;
+        .hero-content {
+            flex: 1;
+            min-width: 280px;
         }
-
-        .module-card:hover {
-            transform: translateY(-5px);
-            border-color: #1e3c72;
-        }
-
-        .module-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .module-card h3 {
-            color: #1e3c72;
-            margin-bottom: 1rem;
-        }
-
-        .module-desc {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .module-specs {
-            font-size: 0.9rem;
-            color: #999;
-        }
-
-        /* About Section */
-        .about {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .about h2 {
-            margin-bottom: 2rem;
-            font-size: 2.5rem;
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .about p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .stats {
+        .hero-svg {
+            flex: 1;
+            min-width: 320px;
             display: flex;
             justify-content: center;
-            gap: 4rem;
-            margin-top: 3rem;
+            align-items: center;
         }
-
-        .stat-item {
-            text-align: center;
+        .hero-svg svg {
+            width: 100%;
+            max-width: 480px;
+            filter: drop-shadow(0 0 15px rgba(0,255,255,0.3));
+            transition: transform 0.3s ease;
         }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #ffd700;
+        .hero-svg svg:hover {
+            transform: scale(1.02);
         }
-
-        .stat-label {
-            font-size: 1rem;
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #0ff, #3a86ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            animation: fadeUp 0.8s ease-out;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
             opacity: 0.9;
         }
-
-        /* Contact Section */
-        .contact {
-            padding: 4rem 2rem;
-            background: #f8f9fa;
+        .cta-button {
+            background: linear-gradient(90deg, #0ff, #0077ff);
+            padding: 1rem 2.5rem;
+            border-radius: 60px;
+            font-weight: bold;
+            color: #010101;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(0,255,255,0.4);
+            display: inline-block;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px cyan;
         }
 
-        .contact h2 {
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* section titles */
+        .section-title {
+            font-size: 2.8rem;
             text-align: center;
             margin-bottom: 3rem;
-            font-size: 2.5rem;
-            color: #1e3c72;
+            background: linear-gradient(120deg, #fff, #0ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        .contact-container {
-            max-width: 800px;
+        /* modules grid (new core) */
+        .modules-deep {
+            padding: 5rem 2rem;
+            background: #020617;
+        }
+        .module-category {
+            margin-bottom: 4rem;
+        }
+        .cat-head {
+            font-size: 2rem;
+            border-left: 5px solid #0ff;
+            padding-left: 1.2rem;
+            margin-bottom: 2rem;
+            letter-spacing: -0.3px;
+        }
+        .module-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        .module-tile {
+            background: rgba(12, 25, 55, 0.7);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(0, 255, 255, 0.25);
+            border-radius: 2rem;
+            padding: 1.5rem 1.8rem;
+            width: 220px;
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: default;
+        }
+        .module-tile i {
+            font-size: 2.5rem;
+            color: #0ff;
+            margin-bottom: 1rem;
+        }
+        .module-tile h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .module-tile p {
+            font-size: 0.8rem;
+            opacity: 0.75;
+        }
+        .module-tile:hover {
+            transform: translateY(-8px);
+            border-color: cyan;
+            box-shadow: 0 10px 25px -8px rgba(0,255,255,0.3);
+            background: rgba(0, 200, 255, 0.1);
+        }
+
+        /* feature cards modern */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1300px;
             margin: 0 auto;
         }
-
-        .contact-form {
-            background: white;
+        .glass-card {
+            background: rgba(20, 30, 55, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 2rem;
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,255,255,0.2);
+            transition: 0.2s;
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
+        /* product pricing */
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .pricing-card {
+            background: #0a1022;
+            border-radius: 2rem;
+            overflow: hidden;
+            width: 300px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            transition: 0.25s;
+        }
+        .pricing-card:hover {
+            transform: scale(1.02);
+            border-color: cyan;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #333;
+        /* contact form */
+        .contact-form {
+            background: rgba(10, 20, 35, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 2rem;
+            border: 1px solid cyan;
         }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        input, select, textarea {
+            background: #0f172f;
+            border: 1px solid #2d3a6e;
+            color: white;
+            border-radius: 1rem;
+            padding: 0.8rem;
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
         }
-
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
+        .form-group {
+            margin-bottom: 1.2rem;
         }
-
         .submit-btn {
-            background: #1e3c72;
-            color: white;
-            padding: 1rem 2rem;
+            background: #0ff;
+            color: #000;
+            font-weight: bold;
             border: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
             cursor: pointer;
-            transition: background 0.3s;
         }
 
-        .submit-btn:hover {
-            background: #2a5298;
-        }
-
-        /* Footer */
         footer {
-            background: #1a1a1a;
-            color: white;
+            border-top: 1px solid cyan;
+            background: #010518;
             text-align: center;
             padding: 2rem;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-float a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .whatsapp-float a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.8);
+        }
+        
+        .whatsapp-float i {
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
             }
-            
-            .hero h1 {
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Tooltip for WhatsApp */
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 80px;
+            bottom: 15px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+            border: 1px solid #25D366;
+        }
+        
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+        }
+        
+        @media (max-width: 860px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.4rem; }
+            .hero-container { flex-direction: column; text-align: center; }
+            .hero-svg svg { max-width: 320px; }
+            .module-tile { width: 170px; padding: 1rem; }
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+            }
+            .whatsapp-float a {
+                width: 55px;
+                height: 55px;
+            }
+            .whatsapp-float i {
                 font-size: 2rem;
             }
-            
-            .stats {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            
-            .feature-grid,
-            .product-grid,
-            .module-grid {
-                grid-template-columns: 1fr;
+            .whatsapp-tooltip {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">MASTAMS</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#atg-modules">ATG Modules</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="home" class="hero">
-        <h1>Advanced Gas Station Inventory Solutions</h1>
-        <p>Powered by Oracle Technology | Precision ATG Modules for Tank Management</p>
-        <a href="#contact" class="cta-button">Get Started Today</a>
-    </section>
+<header>
+    <nav>
+        <div class="logo">MASTAMS<span>FUEL</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Edge</a></li>
+            <li><a href="#modules-core">Modules</a></li>
+            <li><a href="#products">Plans</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <section id="features" class="features">
-        <h2>Why Choose MASTAMS?</h2>
-        <div class="feature-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🔧</div>
-                <h3>Oracle-Powered</h3>
-                <p>Enterprise-grade inventory management built on Oracle's robust database technology</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Real-time Monitoring</h3>
-                <p>Live inventory tracking and automated reordering systems</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3>Secure & Reliable</h3>
-                <p>Bank-level security with 99.9% uptime guarantee</p>
-            </div>
+<!-- Hero with SVG Illustration: Futuristic Fuel Dashboard & ATG Tank -->
+<section id="home" class="hero">
+    <div class="parallax-bg" id="parallaxBg"></div>
+    <div class="hero-container">
+        <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+            <h1>Quantum Fuel Intelligence</h1>
+            <p>Oracle-powered ATG fusion | Real-time Tank, Nozzle & Retail Ecosystem</p>
+            <a href="#contact" class="cta-button">Launch Demo <i class="fas fa-rocket"></i></a>
         </div>
-    </section>
-
-    <section id="products" class="products">
-        <h2>Inventory Management Solutions</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-header">
-                    <h3>Oracle Inventory Pro</h3>
-                    <p>Complete Station Management</p>
-                </div>
-                <div class="product-body">
-                    <ul class="product-features">
-                        <li>Real-time inventory tracking</li>
-                        <li>Automated reorder alerts</li>
-                        <li>Multi-station management</li>
-                        <li>Oracle database integration</li>
-                        <li>Advanced reporting & analytics</li>
-                    </ul>
-                    <div class="product-price">
-                        RS.50,000 <small>one-time</small>
-                    </div>
-                    <a href="#contact" class="product-btn">Request Demo</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-header">
-                    <h3>Enterprise Fuel Manager</h3>
-                    <p>For Large Operations</p>
-                </div>
-                <div class="product-body">
-                    <ul class="product-features">
-                        <li>All Pro features included</li>
-                        <li>Unlimited stations</li>
-                        <li>Advanced security features</li>
-                        <li>Custom reporting suite</li>
-                        <li>24/7 priority support</li>
-                    </ul>
-                    <div class="product-price">
-                        Rs.50,000 <small>one-time</small>
-                    </div>
-                    <a href="#contact" class="product-btn">Request Demo</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-header">
-                    <h3>Cloud Inventory Suite</h3>
-                    <p>SaaS Solution</p>
-                </div>
-                <div class="product-body">
-                    <ul class="product-features">
-                        <li>Cloud-based management</li>
-                        <li>Mobile accessibility</li>
-                        <li>Automatic updates</li>
-                        <li>Scalable architecture</li>
-                        <li>Monthly subscription</li>
-                    </ul>
-                    <div class="product-price">
-                        Rs.3500 <small>/month</small>
-                    </div>
-                    <a href="#contact" class="product-btn">Start Free Trial</a>
-                </div>
-            </div>
+        <div class="hero-svg" data-aos="fade-left" data-aos-duration="1000">
+            <!-- SVG Illustration: Futuristic fuel station dashboard with ATG tank visualization -->
+            <svg viewBox="0 0 500 420" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#0ff" stop-opacity="0.8"/>
+                        <stop offset="100%" stop-color="#2a6fdf" stop-opacity="0.4"/>
+                    </linearGradient>
+                    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+                        <feMerge>
+                            <feMergeNode in="offsetblur" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                </defs>
+                
+                <!-- Background HUD circles -->
+                <circle cx="250" cy="200" r="160" stroke="rgba(0,255,255,0.2)" fill="none" stroke-width="1.5" stroke-dasharray="5 5"/>
+                <circle cx="250" cy="200" r="120" stroke="rgba(0,255,255,0.3)" fill="none" stroke-width="1"/>
+                <circle cx="250" cy="200" r="80" stroke="rgba(0,255,255,0.4)" fill="none" stroke-width="1.2"/>
+                
+                <!-- Central Fuel Tank (ATG visualization) -->
+                <rect x="190" y="130" width="120" height="160" rx="12" fill="url(#glowGrad)" stroke="#0ff" stroke-width="2.5" filter="url(#neonGlow)"/>
+                <!-- Liquid level (fuel indicator) -->
+                <rect x="194" y="240" width="112" height="46" fill="#0ff" opacity="0.7" rx="6">
+                    <animate attributeName="height" values="46;70;46" dur="4s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="240;216;240" dur="4s" repeatCount="indefinite" />
+                </rect>
+                <text x="250" y="290" text-anchor="middle" fill="#0ff" font-size="12" font-weight="bold">87% VOL</text>
+                
+                <!-- Tank sensors -->
+                <line x1="250" y1="130" x2="250" y2="290" stroke="#0ff" stroke-width="1" stroke-dasharray="4 2" opacity="0.6"/>
+                <circle cx="250" cy="210" r="5" fill="#0ff" filter="url(#neonGlow)">
+                    <animate attributeName="r" values="5;8;5" dur="1.8s" repeatCount="indefinite"/>
+                </circle>
+                
+                <!-- Nozzle & dispenser (right side) -->
+                <g transform="translate(330, 170)">
+                    <rect x="0" y="0" width="45" height="100" rx="8" fill="#1e2a4a" stroke="#0ff" stroke-width="1.8"/>
+                    <rect x="10" y="20" width="25" height="12" fill="#0ff" opacity="0.6" rx="2"/>
+                    <rect x="10" y="40" width="25" height="12" fill="#0ff" opacity="0.6" rx="2"/>
+                    <rect x="10" y="60" width="25" height="12" fill="#0ff" opacity="0.6" rx="2"/>
+                    <path d="M45 50 L65 55 L45 60 Z" fill="#0ff" opacity="0.9"/>
+                </g>
+                
+                <!-- Left side: Data Dashboard elements -->
+                <g transform="translate(30, 150)">
+                    <rect x="0" y="0" width="120" height="90" rx="12" fill="rgba(0,20,50,0.7)" stroke="#0ff" stroke-width="1.5"/>
+                    <text x="15" y="25" fill="#0ff" font-size="10">📊 METER</text>
+                    <text x="15" y="45" fill="white" font-size="9">12456.7 L</text>
+                    <text x="15" y="65" fill="#0ff" font-size="10">💰 CASH SALE</text>
+                    <text x="15" y="82" fill="white" font-size="9">$3,420</text>
+                </g>
+                
+                <g transform="translate(30, 260)">
+                    <rect x="0" y="0" width="120" height="80" rx="12" fill="rgba(0,20,50,0.7)" stroke="#0ff" stroke-width="1.5"/>
+                    <text x="15" y="25" fill="#0ff" font-size="10">📈 INCOME (M)</text>
+                    <text x="15" y="45" fill="white" font-size="9">+$24.8K</text>
+                    <text x="15" y="68" fill="#0ff" font-size="9">Trial Balance ✓</text>
+                </g>
+                
+                <!-- Central dial (rate management) -->
+                <g transform="translate(250, 340)">
+                    <circle cx="0" cy="0" r="28" fill="none" stroke="#0ff" stroke-width="2" stroke-dasharray="3 2"/>
+                    <path d="M0 -22 L5 -10 L-5 -10 Z" fill="#0ff">
+                        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="12s" repeatCount="indefinite" additive="sum"/>
+                    </path>
+                    <text x="0" y="6" text-anchor="middle" fill="white" font-size="8">RATE</text>
+                </g>
+                
+                <!-- Floating HUD indicators -->
+                <text x="400" y="50" fill="#0ff" font-size="9">📅 Income Daily: $1,240</text>
+                <text x="400" y="75" fill="#88ddff" font-size="9">📆 Income Monthly: $37.2K</text>
+                <text x="70" y="70" fill="#0ff" font-size="9">⚡ Nozzle 3: 22.4 L/min</text>
+                <text x="70" y="95" fill="#88ddff" font-size="9">🧾 Receipts #9823</text>
+                
+                <!-- Stock Ledger indicator -->
+                <rect x="380" y="320" width="100" height="45" rx="8" fill="rgba(0,30,50,0.8)" stroke="#0ff" stroke-width="1"/>
+                <text x="390" y="345" fill="#0ff" font-size="9">General Ledger</text>
+                <text x="390" y="360" fill="white" font-size="8">Bal: $142,300</text>
+                
+                <!-- decorative scan lines -->
+                <line x1="20" y1="400" x2="480" y2="400" stroke="#0ff" stroke-width="0.8" stroke-dasharray="6 4" opacity="0.4"/>
+                <line x1="20" y1="410" x2="480" y2="410" stroke="#0ff" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.3"/>
+                
+                <!-- title inside svg -->
+                <text x="250" y="30" text-anchor="middle" fill="#0ff" font-size="10" font-weight="bold">ATG TELEMETRY • LIVE MASTAMS</text>
+            </svg>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="atg-modules" class="atg-modules">
-        <h2>ATG Modules for Tank Management</h2>
-        <div class="module-grid">
-            <div class="module-card">
-                <div class="module-icon">📡</div>
-                <h3>Level Monitoring ATG</h3>
-                <p class="module-desc">Precise fuel level monitoring with 0.1mm accuracy</p>
-                <p class="module-specs">Compatible with all major tank types • Real-time alerts</p>
-            </div>
-            <div class="module-card">
-                <div class="module-icon">🔍</div>
-                <h3>Leak Detection Module</h3>
-                <p class="module-desc">Early warning system for tank integrity issues</p>
-                <p class="module-specs">Continuous monitoring • Instant notifications • Compliance reporting</p>
-            </div>
-            <div class="module-card">
-                <div class="module-icon">🌡️</div>
-                <h3>Temperature Compensation</h3>
-                <p class="module-desc">Accurate volume calculations with temperature correction</p>
-                <p class="module-specs">API standards compliant • Automatic adjustments</p>
-            </div>
-            <div class="module-card">
-                <div class="module-icon">📱</div>
-                <h3>Remote Monitoring ATG</h3>
-                <p class="module-desc">Access tank data from anywhere via mobile app</p>
-                <p class="module-specs">iOS & Android apps • Push notifications • Cloud backup</p>
-            </div>
-            <div class="module-card">
-                <div class="module-icon">⚡</div>
-                <h3>Multi-Product ATG</h3>
-                <p class="module-desc">Simultaneous monitoring of up to 8 different products</p>
-                <p class="module-specs">Perfect for multi-fuel stations • Product segregation</p>
-            </div>
-            <div class="module-card">
-                <div class="module-icon">📊</div>
-                <h3>ATG Analytics Pro</h3>
-                <p class="module-desc">Advanced data analysis and forecasting tools</p>
-                <p class="module-specs">Trend analysis • Predictive maintenance • Custom reports</p>
-            </div>
+<!-- Features -->
+<section id="features" class="modules-deep" style="padding-top: 4rem;">
+    <div class="section-title" data-aos="fade-right">⚡ Next-Gen Capabilities</div>
+    <div class="feature-grid">
+        <div class="glass-card" data-aos="zoom-in"><i class="fas fa-microchip" style="font-size: 2.5rem; color:#0ff;"></i><h3>ATG Neural Link</h3><p>0.01mm precision, leak prediction & thermal compensation.</p></div>
+        <div class="glass-card" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-chart-line"></i><h3>AI Inventory Forecasting</h3><p>Self-learning algorithms reduce shrinkage by 23%.</p></div>
+        <div class="glass-card" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-cloud-upload-alt"></i><h3>Edge-to-Cloud Sync</h3><p>Real-time reconciliation across all stations.</p></div>
+    </div>
+</section>
+
+<!-- NEW MODULES: Tank, Nozzle, Rate, Retail, Ledger, Financials -->
+<section id="modules-core" class="modules-deep" style="background: radial-gradient(circle at 10% 20%, #071126, #010101);">
+    <div class="section-title" data-aos="fade-up">📡 Full-Stack Station OS</div>
+    
+    <!-- Operations -->
+    <div class="module-category" data-aos="fade-up">
+        <div class="cat-head"><i class="fas fa-oil-can"></i> Core Operations</div>
+        <div class="module-flex">
+            <div class="module-tile"><i class="fas fa-tachometer-alt"></i><h4>Tank Management</h4><p>Live ullage, water detection, ATG integration</p></div>
+            <div class="module-tile"><i class="fas fa-plug"></i><h4>Nozzle Management</h4><p>Per-nozzle flow, POS sync, activity audit</p></div>
+            <div class="module-tile"><i class="fas fa-dollar-sign"></i><h4>Rate Management</h4><p>Dynamic pricing, zone rules, margin engine</p></div>
         </div>
-    </section>
+    </div>
 
-    <section id="about" class="about">
-        <h2>About MASTAMS</h2>
-        <div class="about-content">
-            <p>With over 15 years of experience in the fuel retail industry, MASTAMS has been at the forefront of gas station inventory management technology. Our Oracle-based solutions power thousands of stations across North America, Europe, and Asia.</p>
-            <p>We specialize in developing robust inventory solutions and ATG modules that help gas station owners maximize efficiency, reduce losses, and ensure compliance with environmental regulations.</p>
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">2,500+</div>
-                    <div class="stat-label">Stations Served</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">99.9%</div>
-                    <div class="stat-label">Uptime Rate</div>
-                </div>
-            </div>
+    <!-- Retail: Detailed -->
+    <div class="module-category" data-aos="fade-up">
+        <div class="cat-head"><i class="fas fa-shopping-cart"></i> Retail Command Center</div>
+        <div class="module-flex">
+            <div class="module-tile"><i class="fas fa-tachometer-alt"></i><h4>Meter Readings</h4><p>Digital pulse counters, shift reconciliation</p></div>
+            <div class="module-tile"><i class="fas fa-credit-card"></i><h4>Credit Sale</h4><p>Visa/Mastercard/Amex, auto settlement</p></div>
+            <div class="module-tile"><i class="fas fa-money-bill-wave"></i><h4>Cash Sale</h4><p>Secure cash drawer, Z-reads integration</p></div>
+            <div class="module-tile"><i class="fas fa-hand-holding-usd"></i><h4>Payments</h4><p>Unified gateway: fuel cards, wallet, QR</p></div>
+            <div class="module-tile"><i class="fas fa-receipt"></i><h4>Receipts</h4><p>Digital + thermal, VAT compliant</p></div>
+            <div class="module-tile"><i class="fas fa-chart-pie"></i><h4>Expenses</h4><p>OPEX tracking, vendor payables</p></div>
+            <div class="module-tile"><i class="fas fa-chart-bar"></i><h4>Daily Closing Reports</h4><p>Auto X/Z reports, variance detection</p></div>
         </div>
-    </section>
+    </div>
 
-    <section id="contact" class="contact">
-        <h2>Get In Touch</h2>
-        <div class="contact-container">
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-                <div class="form-group">
-                    <label for="interest">I'm interested in</label>
-                    <select id="interest" name="interest">
-                        <option value="inventory">Inventory Management</option>
-                        <option value="atg">ATG Modules</option>
-                        <option value="both">Both Solutions</option>
-                        <option value="consulting">Consulting Services</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+    <!-- Ledger Suite -->
+    <div class="module-category" data-aos="fade-up">
+        <div class="cat-head"><i class="fas fa-book"></i> Ledger Intelligence</div>
+        <div class="module-flex">
+            <div class="module-tile"><i class="fas fa-balance-scale"></i><h4>General Ledger</h4><p>Multi-entity, real-time GL posting</p></div>
+            <div class="module-tile"><i class="fas fa-cubes"></i><h4>Stock Ledger</h4><p>Fuel & convenience items, FIFO/LIFO</p></div>
+            <div class="module-tile"><i class="fas fa-chart-line"></i><h4>Trial Balance</h4><p>Automated period-end verification</p></div>
+            <div class="module-tile"><i class="fas fa-users"></i><h4>Customer Reports</h4><p>Loyalty analytics, purchase behavior</p></div>
+            <div class="module-tile"><i class="fas fa-gas-pump"></i><h4>Product Reports</h4><p>SKU performance, margin by grade</p></div>
         </div>
-    </section>
+    </div>
 
-    <footer>
-        <p>&copy; 2024 MASTAMS. All rights reserved. | Oracle Partner Network Member</p>
-        <p style="margin-top: 1rem; font-size: 0.9rem;">📞 +923017330084 | ✉️ info@mastams.com</p>
-    </footer>
+    <!-- Financial Reports -->
+    <div class="module-category" data-aos="fade-up">
+        <div class="cat-head"><i class="fas fa-chart-simple"></i> Financial Analytics</div>
+        <div class="module-flex">
+            <div class="module-tile"><i class="fas fa-file-invoice-dollar"></i><h4>Income Statement (Monthly)</h4><p>P&L breakdown, trend analysis</p></div>
+            <div class="module-tile"><i class="fas fa-calendar-day"></i><h4>Income Statement (Daily)</h4><p>Granular margin per shift, alerts</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- Products Section -->
+<section id="products" class="modules-deep" style="background: #020617;">
+    <h2 class="section-title" data-aos="flip-up">⚙️ Inventory & ATG Suites</h2>
+    <div class="product-grid">
+        <div class="pricing-card glass" data-aos="fade-right">
+            <div style="padding: 1.5rem; background: linear-gradient(135deg,#0a1a3a,#001);"><h3>Oracle Fuel MASTAMS</h3><p>ATG + Tank Master</p></div>
+            <div style="padding: 1.5rem;"><ul style="list-style: none;"><li>✓ Real-time tank telemetry</li><li>✓ Nozzle sync & rate rules</li><li>✓ Daily closing reports</li><li>✓ Stock Ledger</li></ul><div style="font-size:2rem; margin:1rem 0;"></div><a href="#contact" class="cta-button" style="display:inline-block; padding:0.7rem;">Enquire</a></div>
+        </div>
+        <div class="pricing-card glass" data-aos="fade-up">
+            <div style="padding: 1.5rem; background: linear-gradient(135deg,#0a1a3a,#001);"><h3>Retail+ Ledger Pro</h3><p>Full commerce stack</p></div>
+            <div style="padding: 1.5rem;"><ul style="list-style: none;"><li>✓ All Retail modules (Meter, Credit/Cash)</li><li>✓ General Ledger & Trial Balance</li><li>✓ Income Statements (Daily/Monthly)</li><li>✓ Customer & Product Reports</li></ul><div style="font-size:2rem; margin:1rem 0;"></div><a href="#contact" class="cta-button" style="display:inline-block; padding:0.7rem;">Demo</a></div>
+        </div>
+        <div class="pricing-card glass" data-aos="fade-left">
+            <div style="padding: 1.5rem; background: linear-gradient(135deg,#0a1a3a,#001);"><h3>ATG Quantum Suite</h3><p>Predictive + compliance</p></div>
+            <div style="padding: 1.5rem;"><ul style="list-style: none;"><li>✓ Level, Leak, Temp modules</li><li>✓ Remote monitoring AI</li><li>✓ Expenses & Receipts automation</li><li>✓ Financial Reports Suite</li></ul><div style="font-size:2rem; margin:1rem 0;"></div><a href="#contact" class="cta-button" style="display:inline-block; padding:0.7rem;">Explore</a></div>
+        </div>
+    </div>
+</section>
+
+<!-- ATG advanced modules -->
+<section class="modules-deep" style="background: radial-gradient(ellipse at top, #091a30, #010101);">
+    <h2 class="section-title">🧠 Intelligent ATG Modules</h2>
+    <div class="module-flex">
+        <div class="module-tile"><i class="fas fa-waveform"></i><h3>Ultrasonic Level ATG</h3><p>±0.5mm precision</p></div>
+        <div class="module-tile"><i class="fas fa-tint"></i><h3>Water & Sediment</h3><p>Real-time contamination alert</p></div>
+        <div class="module-tile"><i class="fas fa-thermometer-half"></i><h3>Temp Compensated Vol</h3><p>API MPMS accuracy</p></div>
+        <div class="module-tile"><i class="fas fa-satellite-dish"></i><h3>Satellite Telemetry</h3><p>Off-grid stations</p></div>
+        <div class="module-tile"><i class="fas fa-chart-scatter"></i><h3>Predictive Leak AI</h3><p>Early failure detection</p></div>
+    </div>
+</section>
+
+<!-- About with stats -->
+<section id="about" class="modules-deep" style="background: #010a1a;">
+    <div class="section-title">🔮 The PetroTech Evolution</div>
+    <div style="max-width: 1000px; margin: auto; text-align: center;">
+        <p style="font-size:1.2rem;">Over 2,800 stations trust MASTAMS FUEL for integrated Tank, Nozzle, Retail, Ledger and Financial command. Our Oracle backend + futuristic ATG arrays deliver 99.99% uptime and real-time profit visibility.</p>
+        <div style="display: flex; justify-content: center; gap: 3rem; margin-top: 3rem; flex-wrap: wrap;">
+            <div><span style="font-size: 3rem; font-weight: 800; color:#0ff;">98%</span><br>shrink reduction</div>
+            <div><span style="font-size: 3rem; font-weight: 800; color:#0ff;">24/7</span><br>AI anomaly detection</div>
+            <div><span style="font-size: 3rem; font-weight: 800; color:#0ff;">15ms</span><br>ATG data latency</div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="modules-deep" style="background: #030b1c;">
+    <h2 class="section-title">🚀 Ignite Your Station</h2>
+    <div class="contact-container" style="max-width: 700px; margin: auto;">
+        <form id="nexusForm" class="contact-form" data-aos="fade-up">
+            <div class="form-group"><label>Full Name</label><input type="text" id="name" required></div>
+            <div class="form-group"><label>Email</label><input type="email" id="email" required></div>
+            <div class="form-group"><label>Interest Area</label><select id="interest"><option>Full Inventory + ATG</option><option>Retail (Meter/Sales/Payments)</option><option>Ledger & Financial Reports</option><option>Tank/Nozzle/Rate Management</option></select></div>
+            <div class="form-group"><label>Message</label><textarea rows="3" placeholder="Tell us your station size..."></textarea></div>
+            <button type="submit" class="submit-btn" style="background:cyan; color:#000; width:100%;"><i class="fas fa-paper-plane"></i> Submit Request</button>
+            <p id="formFeedback" style="margin-top: 1rem; text-align:center; color:#0ff;"></p>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 MASTAMS FUEL | Oracle Cloud Partner | ATG Excellence</p>
+    <p style="margin-top: 0.5rem;"><i class="fas fa-phone-alt"></i> +923017330084 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> info@mastams.com</p>
+</footer>
+
+<!-- WhatsApp Floating Button -->
+<div class="whatsapp-float">
+    <a href="https://wa.me/923017330084?text=Hello%21%20I%27m%20interested%20in%20MASTAMS%20FUEL%20inventory%20solutions.%20Can%20you%20share%20more%20details%3F" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
+    </a>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Initialize AOS animations
+    AOS.init({ duration: 800, once: false, mirror: true });
+    
+    // Parallax effect for background
+    window.addEventListener('scroll', function() {
+        var scrollY = window.scrollY;
+        var parallax = document.getElementById('parallaxBg');
+        if(parallax) {
+            parallax.style.transform = 'translateY(' + (scrollY * 0.2) + 'px)';
+        }
+    });
+    
+    // Form submission handler
+    var form = document.getElementById('nexusForm');
+    if(form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var name = document.getElementById('name').value;
+            var feedback = document.getElementById('formFeedback');
+            if(name && name.trim() !== "") {
+                feedback.innerHTML = '✅ Thanks ' + name + ', our fuel specialist will connect within 2h.';
+                feedback.style.color = "#0ff";
+                form.reset();
+            } else {
+                feedback.innerHTML = "⚠️ Please enter your name to proceed.";
+                feedback.style.color = "#ffaa44";
+            }
+            setTimeout(function() { feedback.innerHTML = ""; }, 4000);
+        });
+    }
+    
+    // Smooth scroll for anchor links
+    var anchors = document.querySelectorAll('a[href^="#"]');
+    for(var i = 0; i < anchors.length; i++) {
+        anchors[i].addEventListener('click', function(e) {
+            var targetId = this.getAttribute('href');
+            if(targetId === "#") return;
+            var targetElem = document.querySelector(targetId);
+            if(targetElem) {
+                e.preventDefault();
+                targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
+</script>
 </body>
-
 </html>
