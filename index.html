@@ -3,12 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>MASTAMS FUEL | Futuristic Gas Station Inventory & ATG Intelligence</title>
-    <!-- Google Fonts & Font Awesome -->
+    <!-- SEO Meta Tags -->
+    <title>MASTAMS FUEL | #1 Petrol Pump Software (Inventory Management)</title>
+    <meta name="description" content="Leading petrol pump software for fuel stations. Complete gas station inventory management, ATG modules, tank monitoring, retail POS, ledger, and financial reporting. Trusted by 2,800+ stations worldwide.">
+    <meta name="keywords" content="petrol pump software, gas station inventory, fuel management system, ATG modules, tank monitoring, retail POS, fuel station software, inventory management, petrol station software">
+    <meta name="author" content="MASTAMS FUEL">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="MASTAMS FUEL | #1 Petrol Pump Software & Gas Station Inventory">
+    <meta property="og:description" content="Complete fuel station management with ATG integration, tank monitoring, retail POS, and financial reporting. Trusted by 2,800+ stations.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mastams.com/">
+    <meta property="og:image" content="https://images.pexels.com/photos/274640/pexels-photo-274640.jpeg?auto=compress&cs=tinysrgb&w=1200">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MASTAMS FUEL | Petrol Pump Software & Gas Station Inventory">
+    <meta name="twitter:description" content="Leading petrol pump software with ATG modules, tank monitoring, and complete retail management.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://mastams.com/">
+    
+    <!-- Schema.org Structured Data (LocalBusiness) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "MASTAMS FUEL",
+      "description": "Leading petrol pump software and gas station inventory management solution with ATG modules, tank monitoring, retail POS, and financial reporting.",
+      "url": "https://mastams.com/",
+      "logo": "https://mastams.com/logo.png",
+      "image": "https://images.pexels.com/photos/274640/pexels-photo-274640.jpeg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "PK"
+      },
+      "sameAs": [
+        "https://x.com/MastamsFuel"
+      ],
+      "priceRange": "$$",
+      "telephone": "+92301730084",
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "128"
+      }
+    }
+    </script>
+    
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -24,7 +75,6 @@
             overflow-x: hidden;
         }
 
-        /* futuristic glassmorphism + glow effects */
         .glass {
             background: rgba(15, 25, 45, 0.65);
             backdrop-filter: blur(12px);
@@ -32,7 +82,6 @@
             border-radius: 28px;
         }
 
-        /* custom scroll */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -44,7 +93,6 @@
             border-radius: 10px;
         }
 
-        /* header neon */
         header {
             position: fixed;
             width: 100%;
@@ -53,7 +101,6 @@
             background: rgba(5, 11, 26, 0.85);
             backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(0, 255, 255, 0.3);
-            transition: all 0.3s;
         }
 
         nav {
@@ -72,7 +119,6 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: -0.5px;
         }
         .logo span {
             color: #0ff;
@@ -89,24 +135,19 @@
             text-decoration: none;
             font-weight: 500;
             transition: 0.2s;
-            font-size: 0.95rem;
         }
         .nav-links a:hover {
             color: #0ff;
-            text-shadow: 0 0 5px cyan;
         }
 
-        /* hero with dual column: text + svg illustration */
         .hero {
             position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 0;
-            overflow: hidden;
-            background: radial-gradient(circle at 20% 30%, #0a1a3a, #01050f);
             padding: 6rem 2rem 4rem;
+            background: radial-gradient(circle at 20% 30%, #0a1a3a, #01050f);
         }
         .parallax-bg {
             position: absolute;
@@ -114,10 +155,9 @@
             left: 0;
             width: 100%;
             height: 120%;
-            /*background: url('https://res.cloudinary.com/dxf1gijtg/image/upload/v1774345903/vEuY4_vthvsm.jpg') center/cover no-repeat;*/
+            /*background: url('https://images.pexels.com/photos/274640/pexels-photo-274640.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;*/
             filter: brightness(0.25) contrast(1.2);
             transform: translateY(-10%);
-            will-change: transform;
             z-index: 0;
         }
         .hero-container {
@@ -140,16 +180,11 @@
             min-width: 320px;
             display: flex;
             justify-content: center;
-            align-items: center;
         }
         .hero-svg svg {
             width: 100%;
             max-width: 480px;
             filter: drop-shadow(0 0 15px rgba(0,255,255,0.3));
-            transition: transform 0.3s ease;
-        }
-        .hero-svg svg:hover {
-            transform: scale(1.02);
         }
         .hero h1 {
             font-size: 3.5rem;
@@ -159,12 +194,10 @@
             background-clip: text;
             color: transparent;
             margin-bottom: 1rem;
-            animation: fadeUp 0.8s ease-out;
         }
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
         }
         .cta-button {
             background: linear-gradient(90deg, #0ff, #0077ff);
@@ -174,7 +207,6 @@
             color: #010101;
             text-decoration: none;
             transition: all 0.3s;
-            box-shadow: 0 0 15px rgba(0,255,255,0.4);
             display: inline-block;
         }
         .cta-button:hover {
@@ -182,12 +214,6 @@
             box-shadow: 0 0 25px cyan;
         }
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* section titles */
         .section-title {
             font-size: 2.8rem;
             text-align: center;
@@ -198,7 +224,6 @@
             color: transparent;
         }
 
-        /* modules grid (new core) */
         .modules-deep {
             padding: 5rem 2rem;
             background: #020617;
@@ -211,7 +236,6 @@
             border-left: 5px solid #0ff;
             padding-left: 1.2rem;
             margin-bottom: 2rem;
-            letter-spacing: -0.3px;
         }
         .module-flex {
             display: flex;
@@ -226,9 +250,8 @@
             border-radius: 2rem;
             padding: 1.5rem 1.8rem;
             width: 220px;
-            transition: all 0.3s ease;
             text-align: center;
-            cursor: default;
+            transition: all 0.3s ease;
         }
         .module-tile i {
             font-size: 2.5rem;
@@ -239,18 +262,12 @@
             font-size: 1.25rem;
             margin-bottom: 0.5rem;
         }
-        .module-tile p {
-            font-size: 0.8rem;
-            opacity: 0.75;
-        }
         .module-tile:hover {
             transform: translateY(-8px);
             border-color: cyan;
-            box-shadow: 0 10px 25px -8px rgba(0,255,255,0.3);
             background: rgba(0, 200, 255, 0.1);
         }
 
-        /* feature cards modern */
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -264,10 +281,8 @@
             border-radius: 2rem;
             padding: 2rem;
             border: 1px solid rgba(0,255,255,0.2);
-            transition: 0.2s;
         }
 
-        /* product pricing */
         .product-grid {
             display: flex;
             flex-wrap: wrap;
@@ -280,14 +295,12 @@
             overflow: hidden;
             width: 300px;
             border: 1px solid rgba(0, 255, 255, 0.3);
-            transition: 0.25s;
         }
         .pricing-card:hover {
             transform: scale(1.02);
             border-color: cyan;
         }
 
-        /* contact form */
         .contact-form {
             background: rgba(10, 20, 35, 0.7);
             backdrop-filter: blur(12px);
@@ -321,15 +334,12 @@
             padding: 2rem;
         }
 
-        /* WhatsApp Floating Button */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
             z-index: 1000;
-            animation: pulse 2s infinite;
         }
-        
         .whatsapp-float a {
             display: flex;
             align-items: center;
@@ -340,75 +350,19 @@
             border-radius: 50%;
             text-decoration: none;
             box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255,255,255,0.3);
         }
-        
-        .whatsapp-float a:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(37, 211, 102, 0.8);
-        }
-        
         .whatsapp-float i {
             font-size: 2.5rem;
             color: white;
         }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-        
-        /* Tooltip for WhatsApp */
-        .whatsapp-tooltip {
-            position: absolute;
-            right: 80px;
-            bottom: 15px;
-            background: rgba(0,0,0,0.8);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 25px;
-            font-size: 0.85rem;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
-            font-weight: 500;
-            backdrop-filter: blur(5px);
-            border: 1px solid #25D366;
-        }
-        
-        .whatsapp-float:hover .whatsapp-tooltip {
-            opacity: 1;
-        }
-        
+
         @media (max-width: 860px) {
             .nav-links { display: none; }
             .hero h1 { font-size: 2.4rem; }
-            .hero-container { flex-direction: column; text-align: center; }
-            .hero-svg svg { max-width: 320px; }
             .module-tile { width: 170px; padding: 1rem; }
-            .whatsapp-float {
-                bottom: 20px;
-                right: 20px;
-            }
-            .whatsapp-float a {
-                width: 55px;
-                height: 55px;
-            }
-            .whatsapp-float i {
-                font-size: 2rem;
-            }
-            .whatsapp-tooltip {
-                display: none;
-            }
+            .whatsapp-float { bottom: 20px; right: 20px; }
+            .whatsapp-float a { width: 55px; height: 55px; }
+            .whatsapp-float i { font-size: 2rem; }
         }
     </style>
 </head>
@@ -416,7 +370,7 @@
 
 <header>
     <nav>
-        <div class="logo">MASTAMS<span>FUEL</span></div>
+        <div class="logo">MASTAMS <span>FUEL</span></div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#features">Edge</a></li>
@@ -428,17 +382,15 @@
     </nav>
 </header>
 
-<!-- Hero with SVG Illustration: Futuristic Fuel Dashboard & ATG Tank -->
 <section id="home" class="hero">
     <div class="parallax-bg" id="parallaxBg"></div>
     <div class="hero-container">
-        <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
-            <h1>Quantum Fuel Intelligence</h1>
-            <p>Oracle-powered ATG fusion | Real-time Tank, Nozzle & Retail Ecosystem</p>
-            <a href="#contact" class="cta-button">Launch Demo <i class="fas fa-rocket"></i></a>
+        <div class="hero-content" data-aos="fade-right">
+            <h1>#1 Petrol Pump Software & Gas Station Inventory Management</h1>
+            <p>Oracle-powered ATG fusion | Real-time Tank, Nozzle & Retail Ecosystem | Trusted by 2,800+ stations</p>
+            <a href="#contact" class="cta-button">Get Free Demo <i class="fas fa-rocket"></i></a>
         </div>
-        <div class="hero-svg" data-aos="fade-left" data-aos-duration="1000">
-            <!-- SVG Illustration: Futuristic fuel station dashboard with ATG tank visualization -->
+        <div class="hero-svg" data-aos="fade-left">
             <svg viewBox="0 0 500 420" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -447,267 +399,164 @@
                     </linearGradient>
                     <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
                         <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-                        <feMerge>
-                            <feMergeNode in="offsetblur" />
-                            <feMergeNode in="SourceGraphic" />
-                        </feMerge>
+                        <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
                     </filter>
                 </defs>
-                
-                <!-- Background HUD circles -->
                 <circle cx="250" cy="200" r="160" stroke="rgba(0,255,255,0.2)" fill="none" stroke-width="1.5" stroke-dasharray="5 5"/>
                 <circle cx="250" cy="200" r="120" stroke="rgba(0,255,255,0.3)" fill="none" stroke-width="1"/>
-                <circle cx="250" cy="200" r="80" stroke="rgba(0,255,255,0.4)" fill="none" stroke-width="1.2"/>
-                
-                <!-- Central Fuel Tank (ATG visualization) -->
                 <rect x="190" y="130" width="120" height="160" rx="12" fill="url(#glowGrad)" stroke="#0ff" stroke-width="2.5" filter="url(#neonGlow)"/>
-                <!-- Liquid level (fuel indicator) -->
                 <rect x="194" y="240" width="112" height="46" fill="#0ff" opacity="0.7" rx="6">
                     <animate attributeName="height" values="46;70;46" dur="4s" repeatCount="indefinite" />
                     <animate attributeName="y" values="240;216;240" dur="4s" repeatCount="indefinite" />
                 </rect>
                 <text x="250" y="290" text-anchor="middle" fill="#0ff" font-size="12" font-weight="bold">87% VOL</text>
-                
-                <!-- Tank sensors -->
-                <line x1="250" y1="130" x2="250" y2="290" stroke="#0ff" stroke-width="1" stroke-dasharray="4 2" opacity="0.6"/>
-                <circle cx="250" cy="210" r="5" fill="#0ff" filter="url(#neonGlow)">
-                    <animate attributeName="r" values="5;8;5" dur="1.8s" repeatCount="indefinite"/>
-                </circle>
-                
-                <!-- Nozzle & dispenser (right side) -->
                 <g transform="translate(330, 170)">
                     <rect x="0" y="0" width="45" height="100" rx="8" fill="#1e2a4a" stroke="#0ff" stroke-width="1.8"/>
                     <rect x="10" y="20" width="25" height="12" fill="#0ff" opacity="0.6" rx="2"/>
                     <rect x="10" y="40" width="25" height="12" fill="#0ff" opacity="0.6" rx="2"/>
-                    <rect x="10" y="60" width="25" height="12" fill="#0ff" opacity="0.6" rx="2"/>
                     <path d="M45 50 L65 55 L45 60 Z" fill="#0ff" opacity="0.9"/>
                 </g>
-                
-                <!-- Left side: Data Dashboard elements -->
                 <g transform="translate(30, 150)">
                     <rect x="0" y="0" width="120" height="90" rx="12" fill="rgba(0,20,50,0.7)" stroke="#0ff" stroke-width="1.5"/>
                     <text x="15" y="25" fill="#0ff" font-size="10">📊 METER</text>
                     <text x="15" y="45" fill="white" font-size="9">12456.7 L</text>
-                    <text x="15" y="65" fill="#0ff" font-size="10">💰 CASH SALE</text>
-                    <text x="15" y="82" fill="white" font-size="9">$3,420</text>
                 </g>
-                
-                <g transform="translate(30, 260)">
-                    <rect x="0" y="0" width="120" height="80" rx="12" fill="rgba(0,20,50,0.7)" stroke="#0ff" stroke-width="1.5"/>
-                    <text x="15" y="25" fill="#0ff" font-size="10">📈 INCOME (M)</text>
-                    <text x="15" y="45" fill="white" font-size="9">+$24.8K</text>
-                    <text x="15" y="68" fill="#0ff" font-size="9">Trial Balance ✓</text>
-                </g>
-                
-                <!-- Central dial (rate management) -->
-                <g transform="translate(250, 340)">
-                    <circle cx="0" cy="0" r="28" fill="none" stroke="#0ff" stroke-width="2" stroke-dasharray="3 2"/>
-                    <path d="M0 -22 L5 -10 L-5 -10 Z" fill="#0ff">
-                        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="12s" repeatCount="indefinite" additive="sum"/>
-                    </path>
-                    <text x="0" y="6" text-anchor="middle" fill="white" font-size="8">RATE</text>
-                </g>
-                
-                <!-- Floating HUD indicators -->
-                <text x="400" y="50" fill="#0ff" font-size="9">📅 Income Daily: $1,240</text>
-                <text x="400" y="75" fill="#88ddff" font-size="9">📆 Income Monthly: $37.2K</text>
-                <text x="70" y="70" fill="#0ff" font-size="9">⚡ Nozzle 3: 22.4 L/min</text>
-                <text x="70" y="95" fill="#88ddff" font-size="9">🧾 Receipts #9823</text>
-                
-                <!-- Stock Ledger indicator -->
-                <rect x="380" y="320" width="100" height="45" rx="8" fill="rgba(0,30,50,0.8)" stroke="#0ff" stroke-width="1"/>
-                <text x="390" y="345" fill="#0ff" font-size="9">General Ledger</text>
-                <text x="390" y="360" fill="white" font-size="8">Bal: $142,300</text>
-                
-                <!-- decorative scan lines -->
-                <line x1="20" y1="400" x2="480" y2="400" stroke="#0ff" stroke-width="0.8" stroke-dasharray="6 4" opacity="0.4"/>
-                <line x1="20" y1="410" x2="480" y2="410" stroke="#0ff" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.3"/>
-                
-                <!-- title inside svg -->
-                <text x="250" y="30" text-anchor="middle" fill="#0ff" font-size="10" font-weight="bold">ATG TELEMETRY • LIVE MASTAMS</text>
+                <text x="250" y="30" text-anchor="middle" fill="#0ff" font-size="10" font-weight="bold">PETROL PUMP SOFTWARE • LIVE</text>
             </svg>
         </div>
     </div>
 </section>
 
-<!-- Features -->
-<section id="features" class="modules-deep" style="padding-top: 4rem;">
-    <div class="section-title" data-aos="fade-right">⚡ Next-Gen Capabilities</div>
+<section id="features" class="modules-deep">
+    <div class="section-title" data-aos="fade-right">⚡ Why Choose MASTAMS FUEL?</div>
     <div class="feature-grid">
-        <div class="glass-card" data-aos="zoom-in"><i class="fas fa-microchip" style="font-size: 2.5rem; color:#0ff;"></i><h3>ATG Neural Link</h3><p>0.01mm precision, leak prediction & thermal compensation.</p></div>
-        <div class="glass-card" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-chart-line"></i><h3>AI Inventory Forecasting</h3><p>Self-learning algorithms reduce shrinkage by 23%.</p></div>
-        <div class="glass-card" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-cloud-upload-alt"></i><h3>Edge-to-Cloud Sync</h3><p>Real-time reconciliation across all stations.</p></div>
+        <div class="glass-card" data-aos="zoom-in"><i class="fas fa-microchip" style="font-size: 2.5rem; color:#0ff;"></i><h3>ATG Neural Link</h3><p>0.01mm precision tank monitoring, leak prediction & thermal compensation.</p></div>
+        <div class="glass-card" data-aos="zoom-in"><i class="fas fa-chart-line"></i><h3>AI Inventory Forecasting</h3><p>Reduce fuel shrinkage by 23% with predictive analytics.</p></div>
+        <div class="glass-card" data-aos="zoom-in"><i class="fas fa-cloud-upload-alt"></i><h3>Real-time Sync</h3><p>Cloud-based access from anywhere, any device.</p></div>
     </div>
 </section>
 
-<!-- NEW MODULES: Tank, Nozzle, Rate, Retail, Ledger, Financials -->
 <section id="modules-core" class="modules-deep" style="background: radial-gradient(circle at 10% 20%, #071126, #010101);">
-    <div class="section-title" data-aos="fade-up">📡 Full-Stack Station OS</div>
+    <div class="section-title" data-aos="fade-up">📡 Complete Petrol Pump Software Suite</div>
     
-    <!-- Operations -->
-    <div class="module-category" data-aos="fade-up">
+    <div class="module-category">
         <div class="cat-head"><i class="fas fa-oil-can"></i> Core Operations</div>
         <div class="module-flex">
-            <div class="module-tile"><i class="fas fa-tachometer-alt"></i><h4>Tank Management</h4><p>Live ullage, water detection, ATG integration</p></div>
+            <div class="module-tile"><i class="fas fa-tachometer-alt"></i><h4>Tank Management</h4><p>Live ullage, Fuel detection, ATG integration</p></div>
             <div class="module-tile"><i class="fas fa-plug"></i><h4>Nozzle Management</h4><p>Per-nozzle flow, POS sync, activity audit</p></div>
-            <div class="module-tile"><i class="fas fa-dollar-sign"></i><h4>Rate Management</h4><p>Dynamic pricing, zone rules, margin engine</p></div>
+            <div class="module-tile"><i class="fas fa-dollar-sign"></i><h4>Rate Management</h4><p>Dynamic pricing, margin engine</p></div>
         </div>
     </div>
 
-    <!-- Retail: Detailed -->
-    <div class="module-category" data-aos="fade-up">
-        <div class="cat-head"><i class="fas fa-shopping-cart"></i> Retail Command Center</div>
+    <div class="module-category">
+        <div class="cat-head"><i class="fas fa-shopping-cart"></i> Retail Management</div>
         <div class="module-flex">
-            <div class="module-tile"><i class="fas fa-tachometer-alt"></i><h4>Meter Readings</h4><p>Digital pulse counters, shift reconciliation</p></div>
-            <div class="module-tile"><i class="fas fa-credit-card"></i><h4>Credit Sale</h4><p>Visa/Mastercard/Amex, auto settlement</p></div>
-            <div class="module-tile"><i class="fas fa-money-bill-wave"></i><h4>Cash Sale</h4><p>Secure cash drawer, Z-reads integration</p></div>
-            <div class="module-tile"><i class="fas fa-hand-holding-usd"></i><h4>Payments</h4><p>Unified gateway: fuel cards, wallet, QR</p></div>
-            <div class="module-tile"><i class="fas fa-receipt"></i><h4>Receipts</h4><p>Digital + thermal, VAT compliant</p></div>
-            <div class="module-tile"><i class="fas fa-chart-pie"></i><h4>Expenses</h4><p>OPEX tracking, vendor payables</p></div>
-            <div class="module-tile"><i class="fas fa-chart-bar"></i><h4>Daily Closing Reports</h4><p>Auto X/Z reports, variance detection</p></div>
+            <div class="module-tile"><i class="fas fa-tachometer-alt"></i><h4>Meter Readings</h4><p>Digital pulse counters</p></div>
+            <div class="module-tile"><i class="fas fa-credit-card"></i><h4>Credit Sale</h4><p>Visa/Mastercard/Amex</p></div>
+            <div class="module-tile"><i class="fas fa-money-bill-wave"></i><h4>Cash Sale</h4><p>Secure cash drawer</p></div>
+            <div class="module-tile"><i class="fas fa-hand-holding-usd"></i><h4>Payments</h4><p>Fuel cards, wallet, QR</p></div>
+            <div class="module-tile"><i class="fas fa-receipt"></i><h4>Receipts</h4><p>Digital & thermal</p></div>
+            <div class="module-tile"><i class="fas fa-chart-bar"></i><h4>Daily Closing Reports</h4><p>Auto X/Z reports</p></div>
         </div>
     </div>
 
-    <!-- Ledger Suite -->
-    <div class="module-category" data-aos="fade-up">
-        <div class="cat-head"><i class="fas fa-book"></i> Ledger Intelligence</div>
+    <div class="module-category">
+        <div class="cat-head"><i class="fas fa-book"></i> Ledger & Financials</div>
         <div class="module-flex">
-            <div class="module-tile"><i class="fas fa-balance-scale"></i><h4>General Ledger</h4><p>Multi-entity, real-time GL posting</p></div>
-            <div class="module-tile"><i class="fas fa-cubes"></i><h4>Stock Ledger</h4><p>Fuel & convenience items, FIFO/LIFO</p></div>
-            <div class="module-tile"><i class="fas fa-chart-line"></i><h4>Trial Balance</h4><p>Automated period-end verification</p></div>
-            <div class="module-tile"><i class="fas fa-users"></i><h4>Customer Reports</h4><p>Loyalty analytics, purchase behavior</p></div>
-            <div class="module-tile"><i class="fas fa-gas-pump"></i><h4>Product Reports</h4><p>SKU performance, margin by grade</p></div>
-        </div>
-    </div>
-
-    <!-- Financial Reports -->
-    <div class="module-category" data-aos="fade-up">
-        <div class="cat-head"><i class="fas fa-chart-simple"></i> Financial Analytics</div>
-        <div class="module-flex">
-            <div class="module-tile"><i class="fas fa-file-invoice-dollar"></i><h4>Income Statement (Monthly)</h4><p>P&L breakdown, trend analysis</p></div>
-            <div class="module-tile"><i class="fas fa-calendar-day"></i><h4>Income Statement (Daily)</h4><p>Granular margin per shift, alerts</p></div>
+            <div class="module-tile"><i class="fas fa-balance-scale"></i><h4>General Ledger</h4><p>Multi-entity GL posting</p></div>
+            <div class="module-tile"><i class="fas fa-cubes"></i><h4>Stock Ledger</h4><p>Average Base fuel tracking</p></div>
+            <div class="module-tile"><i class="fas fa-chart-line"></i><h4>Trial Balance</h4><p>Period-end verification</p></div>
+            <div class="module-tile"><i class="fas fa-file-invoice-dollar"></i><h4>Income Statement</h4><p>Monthly & Daily P&L</p></div>
         </div>
     </div>
 </section>
 
-<!-- Products Section -->
-<section id="products" class="modules-deep" style="background: #020617;">
-    <h2 class="section-title" data-aos="flip-up">⚙️ Inventory & ATG Suites</h2>
+<section id="products" class="modules-deep">
+    <h2 class="section-title">⚙️ Petrol Pump Software Plans</h2>
     <div class="product-grid">
         <div class="pricing-card glass" data-aos="fade-right">
-            <div style="padding: 1.5rem; background: linear-gradient(135deg,#0a1a3a,#001);"><h3>Oracle Fuel MASTAMS</h3><p>ATG + Tank Master</p></div>
-            <div style="padding: 1.5rem;"><ul style="list-style: none;"><li>✓ Real-time tank telemetry</li><li>✓ Nozzle sync & rate rules</li><li>✓ Daily closing reports</li><li>✓ Stock Ledger</li></ul><div style="font-size:2rem; margin:1rem 0;"></div><a href="#contact" class="cta-button" style="display:inline-block; padding:0.7rem;">Enquire</a></div>
+            <div style="padding: 1.5rem; background: linear-gradient(135deg,#0a1a3a,#001);"><h3>Fuel MASTAMS</h3><p>ATG + Tank Master</p></div>
+            <div style="padding: 1.5rem;"><ul><li>✓ Real-time tank telemetry</li><li>✓ Nozzle sync & rate rules</li><li>✓ Daily closing reports</li><li>✓ Stock Ledger</li></ul><div style="font-size:2rem; margin:1rem 0;"></div><a href="#contact" class="cta-button" style="display:inline-block; padding:0.7rem;">Enquire</a></div>
         </div>
         <div class="pricing-card glass" data-aos="fade-up">
             <div style="padding: 1.5rem; background: linear-gradient(135deg,#0a1a3a,#001);"><h3>Retail+ Ledger Pro</h3><p>Full commerce stack</p></div>
-            <div style="padding: 1.5rem;"><ul style="list-style: none;"><li>✓ All Retail modules (Meter, Credit/Cash)</li><li>✓ General Ledger & Trial Balance</li><li>✓ Income Statements (Daily/Monthly)</li><li>✓ Customer & Product Reports</li></ul><div style="font-size:2rem; margin:1rem 0;"></div><a href="#contact" class="cta-button" style="display:inline-block; padding:0.7rem;">Demo</a></div>
+            <div style="padding: 1.5rem;"><ul><li>✓ All Retail modules</li><li>✓ General Ledger & Trial Balance</li><li>✓ Income Statements</li><li>✓ Customer Reports</li></ul><div style="font-size:2rem; margin:1rem 0;"></div><a href="#contact" class="cta-button" style="display:inline-block; padding:0.7rem;">Demo</a></div>
         </div>
         <div class="pricing-card glass" data-aos="fade-left">
-            <div style="padding: 1.5rem; background: linear-gradient(135deg,#0a1a3a,#001);"><h3>ATG Quantum Suite</h3><p>Predictive + compliance</p></div>
-            <div style="padding: 1.5rem;"><ul style="list-style: none;"><li>✓ Level, Leak, Temp modules</li><li>✓ Remote monitoring AI</li><li>✓ Expenses & Receipts automation</li><li>✓ Financial Reports Suite</li></ul><div style="font-size:2rem; margin:1rem 0;"></div><a href="#contact" class="cta-button" style="display:inline-block; padding:0.7rem;">Explore</a></div>
+            <div style="padding: 1.5rem; background: linear-gradient(135deg,#0a1a3a,#001);"><h3>Enterprise Suite</h3><p>Complete solution</p></div>
+            <div style="padding: 1.5rem;"><ul><li>✓ All modules included</li><li>✓ ATG Quantum Suite</li><li>✓ Priority 24/7 support</li><li>✓ Custom reporting</li></ul><div style="font-size:2rem; margin:1rem 0;"></div><a href="#contact" class="cta-button" style="display:inline-block; padding:0.7rem;">Explore</a></div>
         </div>
     </div>
 </section>
 
-<!-- ATG advanced modules -->
-<section class="modules-deep" style="background: radial-gradient(ellipse at top, #091a30, #010101);">
-    <h2 class="section-title">🧠 Intelligent ATG Modules</h2>
-    <div class="module-flex">
-        <div class="module-tile"><i class="fas fa-waveform"></i><h3>Ultrasonic Level ATG</h3><p>±0.5mm precision</p></div>
-        <div class="module-tile"><i class="fas fa-tint"></i><h3>Water & Sediment</h3><p>Real-time contamination alert</p></div>
-        <div class="module-tile"><i class="fas fa-thermometer-half"></i><h3>Temp Compensated Vol</h3><p>API MPMS accuracy</p></div>
-        <div class="module-tile"><i class="fas fa-satellite-dish"></i><h3>Satellite Telemetry</h3><p>Off-grid stations</p></div>
-        <div class="module-tile"><i class="fas fa-chart-scatter"></i><h3>Predictive Leak AI</h3><p>Early failure detection</p></div>
-    </div>
-</section>
-
-<!-- About with stats -->
 <section id="about" class="modules-deep" style="background: #010a1a;">
-    <div class="section-title">🔮 The PetroTech Evolution</div>
+    <div class="section-title">🔮 Trusted by 2,800+ Petrol Stations</div>
     <div style="max-width: 1000px; margin: auto; text-align: center;">
-        <p style="font-size:1.2rem;">Over 2,800 stations trust MASTAMS FUEL for integrated Tank, Nozzle, Retail, Ledger and Financial command. Our Oracle backend + futuristic ATG arrays deliver 99.99% uptime and real-time profit visibility.</p>
+        <p style="font-size:1.2rem;">MASTAMS FUEL is the leading petrol pump software provider, powering gas stations across North America, Europe, and Asia. Our Oracle-backed inventory management and ATG modules deliver 99.99% uptime and real-time profit visibility.</p>
         <div style="display: flex; justify-content: center; gap: 3rem; margin-top: 3rem; flex-wrap: wrap;">
             <div><span style="font-size: 3rem; font-weight: 800; color:#0ff;">98%</span><br>shrink reduction</div>
-            <div><span style="font-size: 3rem; font-weight: 800; color:#0ff;">24/7</span><br>AI anomaly detection</div>
-            <div><span style="font-size: 3rem; font-weight: 800; color:#0ff;">15ms</span><br>ATG data latency</div>
+            <div><span style="font-size: 3rem; font-weight: 800; color:#0ff;">24/7</span><br>AI monitoring</div>
+            <div><span style="font-size: 3rem; font-weight: 800; color:#0ff;">15ms</span><br>ATG latency</div>
         </div>
     </div>
 </section>
 
-<!-- Contact -->
 <section id="contact" class="modules-deep" style="background: #030b1c;">
-    <h2 class="section-title">🚀 Ignite Your Station</h2>
+    <h2 class="section-title">🚀 Request a Free Demo</h2>
     <div class="contact-container" style="max-width: 700px; margin: auto;">
         <form id="nexusForm" class="contact-form" data-aos="fade-up">
             <div class="form-group"><label>Full Name</label><input type="text" id="name" required></div>
             <div class="form-group"><label>Email</label><input type="email" id="email" required></div>
-            <div class="form-group"><label>Interest Area</label><select id="interest"><option>Full Inventory + ATG</option><option>Retail (Meter/Sales/Payments)</option><option>Ledger & Financial Reports</option><option>Tank/Nozzle/Rate Management</option></select></div>
-            <div class="form-group"><label>Message</label><textarea rows="3" placeholder="Tell us your station size..."></textarea></div>
-            <button type="submit" class="submit-btn" style="background:cyan; color:#000; width:100%;"><i class="fas fa-paper-plane"></i> Submit Request</button>
-            <p id="formFeedback" style="margin-top: 1rem; text-align:center; color:#0ff;"></p>
+            <div class="form-group"><label>Phone</label><input type="tel" id="phone"></div>
+            <div class="form-group"><label>Interest</label><select id="interest"><option>Petrol Pump Software - Full Suite</option><option>ATG Modules Only</option><option>Retail & Ledger System</option></select></div>
+            <div class="form-group"><label>Message</label><textarea rows="3" placeholder="Tell us about your station..."></textarea></div>
+            <button type="submit" class="submit-btn" style="width:100%;"><i class="fas fa-paper-plane"></i> Get Demo</button>
+            <p id="formFeedback" style="margin-top: 1rem; text-align:center;"></p>
         </form>
     </div>
 </section>
 
 <footer>
-    <p>© 2025 MASTAMS FUEL | Oracle Cloud Partner | ATG Excellence</p>
-    <p style="margin-top: 0.5rem;"><i class="fas fa-phone-alt"></i> +923017330084 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> info@mastams.com</p>
+    <p>© 2025 MASATMS FUEL | #1 Petrol Pump Software & Gas Station Inventory Solution</p>
+    <p><i class="fas fa-phone-alt"></i> +923017330084 | <i class="fas fa-envelope"></i> info@mastams.com</p>
 </footer>
 
-<!-- WhatsApp Floating Button -->
 <div class="whatsapp-float">
-    <a href="https://wa.me/923017330084?text=Hello%21%20I%27m%20interested%20in%20MASTAMS%20FUEL%20inventory%20solutions.%20Can%20you%20share%20more%20details%3F" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/923017330084?text=Hello%21%20I%27m%20interested%20in%20NEXUS%20FUEL%20petrol%20pump%20software.%20Please%20share%20more%20details." target="_blank">
         <i class="fab fa-whatsapp"></i>
-        <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
     </a>
 </div>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    // Initialize AOS animations
-    AOS.init({ duration: 800, once: false, mirror: true });
+    AOS.init({ duration: 800, once: false });
     
-    // Parallax effect for background
     window.addEventListener('scroll', function() {
-        var scrollY = window.scrollY;
-        var parallax = document.getElementById('parallaxBg');
-        if(parallax) {
-            parallax.style.transform = 'translateY(' + (scrollY * 0.2) + 'px)';
-        }
+        let parallax = document.getElementById('parallaxBg');
+        if(parallax) parallax.style.transform = 'translateY(' + (window.scrollY * 0.2) + 'px)';
     });
     
-    // Form submission handler
-    var form = document.getElementById('nexusForm');
-    if(form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            var name = document.getElementById('name').value;
-            var feedback = document.getElementById('formFeedback');
-            if(name && name.trim() !== "") {
-                feedback.innerHTML = '✅ Thanks ' + name + ', our fuel specialist will connect within 2h.';
-                feedback.style.color = "#0ff";
-                form.reset();
-            } else {
-                feedback.innerHTML = "⚠️ Please enter your name to proceed.";
-                feedback.style.color = "#ffaa44";
-            }
-            setTimeout(function() { feedback.innerHTML = ""; }, 4000);
-        });
-    }
+    document.getElementById('nexusForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        let name = document.getElementById('name').value;
+        let feedback = document.getElementById('formFeedback');
+        if(name && name.trim()) {
+            feedback.innerHTML = '✅ Thanks ' + name + '! Our fuel software specialist will contact you within 2 hours.';
+            feedback.style.color = "#0ff";
+            this.reset();
+        } else {
+            feedback.innerHTML = "⚠️ Please enter your name.";
+            feedback.style.color = "#ffaa44";
+        }
+        setTimeout(() => feedback.innerHTML = "", 4000);
+    });
     
-    // Smooth scroll for anchor links
-    var anchors = document.querySelectorAll('a[href^="#"]');
-    for(var i = 0; i < anchors.length; i++) {
-        anchors[i].addEventListener('click', function(e) {
-            var targetId = this.getAttribute('href');
-            if(targetId === "#") return;
-            var targetElem = document.querySelector(targetId);
-            if(targetElem) {
-                e.preventDefault();
-                targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            let target = document.querySelector(this.getAttribute('href'));
+            if(target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
         });
-    }
+    });
 </script>
 </body>
 </html>
